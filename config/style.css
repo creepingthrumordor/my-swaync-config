@@ -1,0 +1,357 @@
+@import "../omarchy/current/theme/waybar.css";
+
+@define-color crust shade(@background, 0.8);
+@define-color red #f38ba8;
+@define-color green #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color blue #F54927;
+@define-color gray #313244;
+@define-color select alpha(@foreground, 0.25);
+
+/* 🎵 MPRIS */
+@define-color mpris-album-art-overlay rgba(0, 0, 0, 0.55);
+@define-color mpris-button-hover rgba(0, 0, 0, 0.5);
+@define-color mpris-button-bg @foreground;
+@define-color mpris-button-fg @crust;
+
+/* -----------------------------------
+   🔤 Global Defaults
+-------------------------------------- */
+* {
+  outline: none;
+  font-family: "Monocraft Nerd Font";
+  font-size: 14px;
+  text-shadow: none;
+  color: @foreground;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+/* -----------------------------------
+   🧩 Control Center
+-------------------------------------- */
+.control-center {
+ background-color: @background;
+  box-shadow: none;
+  padding: 5px;                       /* Minimal padding (from previous step) */
+  border-radius: 8px;                   /* Minimal radius (from previous step) */
+  border: 2px solid #F54927;     /* Set a 2px solid border using the Mako color */
+  /* border: 2px solid #D13F2A; if you didn't define the variable */
+  margin: 5px;                        /* Minimal margin (from previous step) */
+}}
+
+.notification-row .notification-background {
+  border-radius: 10px;
+  margin: 0px;
+}
+
+/* -----------------------------------
+   🔔 Notifications
+-------------------------------------- */
+.notification {
+ background-color: @background;
+  color: @foreground;
+  border: 2px solid #F54927;     /* Enforce the red border */
+  border-radius: 15px;
+  padding: 10px;                      /* Matches Mako padding=10 */
+  margin-bottom: 0px;
+  min-height: 50px;
+  box-shadow: none;}
+
+.notification .summary {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.notification .time {
+  font-size: 0.75rem;
+  color: alpha(@foreground, 0.6);
+}
+
+.notification .body {
+  font-size: 0.95rem;
+  color: @foreground;
+}
+
+.notification-action>button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  background-color: @select;
+  color: @foreground;
+  border-radius: 10px;
+  border: none;
+  margin: 6px 6px 0 0;
+}
+
+.notification-action>button:hover {
+  background-color: @blue;
+}
+
+.notification-action>button:hover label {
+  background-color: @blue;
+  color: @crust;
+}
+
+/* Urgency */
+.notification.critical {
+  background: @red;
+  border-left: 9px solid alpha(red, 0.8);
+}
+
+.notification.critical .title,
+.notification.critical .body,
+.notification.critical .summary {
+  color: alpha(@background, 0.9);
+  font-weight: bold;
+}
+
+.notification.low,
+.notification.normal {
+  background-color: alpha(@background, 0.95);
+  border-left: 9px solid @blue;
+}
+
+/* -----------------------------------
+   🖼️ Image/Icon
+-------------------------------------- */
+.image {
+  margin-right: 10px;
+  min-width: 36px;
+  min-height: 36px;
+  border: none;
+}
+
+/* -----------------------------------
+   ❌ Close Buttons
+-------------------------------------- */
+.close-button {
+  background-color: alpha(@gray, 0.8);
+  border-radius: 8px;
+}
+
+.close-button label {
+  color: aliceblue;
+}
+
+.close-button:hover {
+  background-color: alpha(@red, 0.8);
+}
+
+/* -----------------------------------
+   🔃 Group Header Buttons
+-------------------------------------- */
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background-color: @gray;
+  color: @foreground;
+  border-radius: 6px;
+}
+
+.notification-group-collapse-button:hover {
+  background-color: @blue;
+  color: @crust;
+}
+
+.notification-group-close-all-button:hover {
+  background-color: @red;
+  color: @crust;
+}
+
+/* -----------------------------------
+   📊 Sliders (Volume/Brightness)
+-------------------------------------- */
+scale trough {
+  margin: 0 1rem;
+  background-color: @gray;
+  min-height: 8px;
+  min-width: 70px;
+
+  border-radius: 30px;
+}
+
+trough highlight {
+  background: @blue;
+
+  border-radius: 30px;
+}
+
+slider {
+  border-radius: 30px;
+  background-color: @foreground;
+}
+
+/* -----------------------------------
+   💬 Tooltip
+-------------------------------------- */
+tooltip {
+  background-color: @gray;
+  color: @foreground;
+}
+
+/* -----------------------------------
+   🔘 Buttons Grid
+-------------------------------------- */
+.widget-buttons-grid {
+  font-size: 1rem;
+  padding: 20px 20px 10px;
+}
+
+.widget-buttons-grid button {
+  background: @crust;
+  color: #fff;
+  border-radius: 50px;
+  min-width: 60px;
+  min-height: 30px;
+  margin: 0 3px;
+  padding: 6px;
+}
+
+.widget-buttons-grid button:hover {
+  background: @select;
+}
+
+.widget-buttons-grid button.toggle:checked {
+  background: @blue;
+}
+
+.widget-buttons-grid button.toggle:checked label {
+  background: @blue;
+  color: @background;
+}
+
+
+.widget-buttons-grid button.toggle:checked:hover {
+  background: alpha(@blue, 0.8);
+}
+
+/* -----------------------------------
+   🎵 MPRIS Player
+-------------------------------------- */
+.widget-mpris .widget-mpris-player {
+  padding: 3px;
+  margin: 3px 5px;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.widget-mpris label,
+.widget-mpris-title,
+.widget-mpris-subtitle {
+  color: @foreground;
+}
+
+.widget-mpris-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 0 5px 3px;
+  text-align: center;
+}
+
+.widget-mpris-subtitle {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.widget-mpris-album-art.art {
+  border-radius: 6px;
+  min-width: 10px;
+  min-height: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-shadow: none;
+  background: red;
+}
+
+picture.mpris-background {
+  opacity: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+
+/* -----------------------------------
+   🔊 Volume Widget
+-------------------------------------- */
+.widget-volume {
+  padding: 6px 5px 5px;
+  font-size: 1.3rem;
+}
+
+.widget-volume button {
+  border: none;
+}
+
+/* -----------------------------------
+   🎚️ Per-App Volume
+-------------------------------------- */
+.per-app-volume {
+  padding: 4px 8px 8px;
+  margin: 0 8px 8px;
+}
+
+/* -----------------------------------
+   💡 Backlight
+-------------------------------------- */
+.widget-backlight {
+  padding: 0 0 3px 16px;
+  font-size: 1.1rem;
+}
+
+/* -----------------------------------
+   🔕 DND
+-------------------------------------- */
+.widget-dnd {
+  font-weight: bold;
+  padding: 5px;
+}
+
+.widget-dnd>switch {
+  background: @yellow;
+  border: none;
+  border-radius: 100px;
+  padding: 3px;
+}
+
+.widget-dnd>switch:checked {
+  background: @green;
+}
+
+.widget-dnd>switch slider {
+  background: @background;
+  border-radius: 12px;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+/* -----------------------------------
+   🏷️ Title
+-------------------------------------- */
+.widget-title {
+  padding: 5px;
+  font-weight: bold;
+}
+
+.widget-title>label {
+  font-size: 1rem;
+}
+
+.widget-title>button {
+  background: @red;
+  border: none;
+  border-radius: 100px;
+  padding: 0 6px;
+  transition: all 0.7s ease;
+}
+
+.widget-title>button label {
+  color: @crust;
+}
+
+.widget-title>button:hover {
+  background: alpha(@red, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
+}
