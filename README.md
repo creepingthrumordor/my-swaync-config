@@ -3,7 +3,7 @@
 ## Screenshot
 
 <p align="center">
-  <img src="showcase1.png" alt="showcase 1">
+  <img src="showcase.png" alt="showcase 1">
 </p>
 
 ## Installation
